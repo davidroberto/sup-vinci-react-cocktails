@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import CocktailCard from "./CocktailCard";
 
-const LastCocktails = () => {
+const LastCocktails = ({ bestCocktail }) => {
   const [cocktails, setCocktails] = useState(null);
 
   useEffect(() => {
@@ -20,14 +21,10 @@ const LastCocktails = () => {
 
   return (
     <section>
+      <p>Le meilleur cocktail est {bestCocktail}</p>
       <h2>Les meilleurs cocktails : </h2>
       {cocktails.map((cocktail) => {
-        return (
-          <article key={cocktail.idDrink}>
-            <p>{cocktail.strDrink}</p>
-            <img width={"300px"} src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-          </article>
-        );
+        return <CocktailCard cocktail={cocktail} />;
       })}
     </section>
   );

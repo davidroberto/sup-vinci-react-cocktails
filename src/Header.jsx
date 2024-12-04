@@ -1,4 +1,4 @@
-const Header = () => {
+const Header = ({ userName }) => {
   return (
     <header>
       <h2>Les cocktails de Roberto</h2>
@@ -8,6 +8,8 @@ const Header = () => {
           <li>Accueil</li>
         </ul>
       </nav>
+
+      <p>Vous êtes {userName}</p>
     </header>
   );
 };

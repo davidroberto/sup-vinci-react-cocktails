@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CocktailCard from "./CocktailCard";
 
 const RandomCocktail = () => {
   const [randomCocktail, setRandomCocktail] = useState(null);
@@ -30,10 +31,7 @@ const RandomCocktail = () => {
       <h2>Cocktail aléatoire</h2>
       <button onClick={handleChangeRandomCocktail}>Changer le cocktail</button>
 
-      <article>
-        <p>{randomCocktail.strDrink}</p>
-        <img width={"300px"} src={randomCocktail.strDrinkThumb} alt={randomCocktail.strDrink} />
-      </article>
+      <CocktailCard cocktail={randomCocktail} />
     </section>
   );
 };

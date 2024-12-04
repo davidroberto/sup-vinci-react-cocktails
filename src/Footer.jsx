@@ -1,7 +1,7 @@
-const Footer = () => {
+const Footer = ({ userName }) => {
   return (
     <footer>
-      <p>Copyright David Robert</p>
+      <p>Copyright {userName}</p>
     </footer>
   );
 };

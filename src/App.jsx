@@ -4,12 +4,15 @@ import LastCocktails from "./LastCocktails";
 import RandomCocktail from "./RandomCocktail";
 
 function App() {
+  // fake appel fetch pour l'user connecté
+  const userName = "David Robert";
+
   return (
     <>
-      <Header />
-      <LastCocktails />
+      <Header userName={userName} />
+      <LastCocktails bestCocktail={"Ti Punch"} />
       <RandomCocktail />
-      <Footer />
+      <Footer userName={userName} />
     </>
   );
 }
