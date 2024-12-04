@@ -1,34 +1,15 @@
-import { useEffect, useState } from "react";
-import AllCocktails from "./AllCocktails";
-import Footer from "./Footer";
-import Header from "./Header";
-import LastCocktails from "./LastCocktails";
+import Contact from "./Contact";
 import RandomCocktail from "./RandomCocktail";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
-  // fake appel fetch pour l'user connecté
-  const userName = "David Robert";
-
-  const [cocktails, setCocktails] = useState(null);
-
-  useEffect(() => {
-    fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setCocktails(data.drinks);
-      });
-  }, []);
-
   return (
-    <>
-      <Header userName={userName} />
-      <LastCocktails bestCocktail={"Ti Punch"} cocktails={cocktails} />
-      <RandomCocktail />
-      <AllCocktails cocktails={cocktails} />
-      <Footer userName={userName} />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<RandomCocktail />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
